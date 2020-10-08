@@ -9,7 +9,7 @@ app.get('/',(req, res) => {
 
 
 app.get('/date',(req, res, next) => {
-    res.send("Today's date: (day 08) ~ (month 10) ~ (year 2020)");
+    res.send(Date(2020, 10, 07, 23, 36));
     next();
 });
 
