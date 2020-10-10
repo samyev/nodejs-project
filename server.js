@@ -1,16 +1,21 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const requireDir = require("require-dir");
+
+// Inciciando o App
 const app = express();
-//const date = express.date();
+
+//inicando o DB
+mongoose.connect(
+    "mongodb://localhost:27017/nodeapi", 
+    { useUnifiedTopology: true ,
+      useNewUrlParser: true }
+);
+requireDir('./src/models');
 
 
-app.get('/',(req, res) => {
-    res.send('Good morning my dear <3');
-});
+// Rotas
+app.use('/api', require('./src/routes'));
 
-
-app.get('/date',(req, res, next) => {
-    res.send(Date(2020, 10, 07, 23, 36));
-    next();
-});
 
 app.listen(3001);
