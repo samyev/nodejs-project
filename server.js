@@ -26,4 +26,4 @@ var PORTA = process.env.PORT || 8080
 app.use('/api', require('./src/routes'));
 
 
-app.listen(3001);
+app.listen(PORTA);
